@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
+ {% block head %}   
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Athletik Les 1000 pas{% endblock %}</title>
+        {% block meta %}
         <meta name="description" content="Transformation Kite" >
 	<meta name="author" content="sheelman">
 
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-
+        {% endblock %}
+        {% block stylesheets %}
 	<!-- Bootstrap  -->
 	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -27,10 +30,10 @@
 	<!--[if lt IE 9]>
 	<script src="assets/js/html5shiv.js"></script>
 	<![endif]-->
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% endblock %}
+        
     </head>
-    
+{% endblock %}    
     <body>
         <!-- Preloader -->
         <div id="preloader">
@@ -65,11 +68,10 @@
                 <!-- Main navigation -->
                 <ul id="headernavigation" class="nav navbar-nav">
                     <li class="active"><a href="#page-top">Home</a></li>
-                    <li><a href="{{ path('homepage', {'_fragment': 'conexion'}) }}">Conexion</a></li>
-                    <li><a href="{{ path('presentation', {'_fragment': 'lettre'}) }}">Lettre du président</a></li>
-                    <li><a href="{{ path('presentation', {'_fragment': 'portfolio'}) }}">Portfolio</a></li>
-                    <li><a href="{{ path('tableaux', {'_fragment': 'resultat'}) }}">Résultat des courses</a></li>	
-                    <li><a href="{{ path('tableaux', {'_fragment': 'classement'}) }}">Classement Général</a></li>	
+                    <li><a href="#lettre">Lettre du président</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#resultat">Résultat des courses</a></li>	
+                    <li><a href="#classement">Classement Général</a></li>	
                     <li><a href="#contact">Contact</a></li>		
                 </ul> <!-- /.nav .navbar-nav -->
             </nav> <!-- /.navbar-collapse  -->
@@ -280,9 +282,21 @@
 	  </div>
 	</div>
 	<!-- Color Variation Switcher End -->
+        
+        <!-- Color Variation Switcher  -->
+        <section id="conexion">
+            <div>
 
+                <h3>Conexion</h3>
+                {% block layout %}{% endblock %}
+            </div>	  
+            <div class="bottom">
+                <a href="#" class="settings"><i class="fa fa-user icon-2x"></i></a>
+            </div>
+        </section>
+        <!-- Color Variation Switcher End -->
 
-
+        {% block javascripts %}
 	<!-- jQuery Library -->      
 	<script type="text/javascript" src="assets/js/jquery-2.1.0.min.js"></script>
 	<!-- Modernizr js -->
@@ -295,6 +309,6 @@
 	<script type="text/javascript" src="assets/js/switcher.js"></script>
         <!-- Bootstrap Core JavaScript -->
         <script src="assets/js/bootstrap.min.js"></script>
-        {% block javascripts %}{% endblock %}
+        {% endblock %}
     </body>
 </html>

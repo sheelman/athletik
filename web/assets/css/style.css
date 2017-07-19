@@ -34,6 +34,7 @@ Tags: HTML, Template, Coming Soon, Kite
 *    9.3 - media screen and (max-width: 1170px) 
 *  10 - Preloader
 *  11 - Color Style Switcher
+*  12 - Login Switcher
 *
 ---------------------------------------------------------------------- */
 
@@ -1062,9 +1063,9 @@ background: #00aaff;
 #color-style-switcher {
     background: none repeat scroll 0 0 rgba(0,0,0,.7);
     box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.08);
-    left: -189px;
+    right: -189px;
     position: fixed;
-    top: 50px;
+    top: 100px;
     width: 195px;
     z-index: 9999;
 }
@@ -1082,7 +1083,7 @@ background: #00aaff;
     display: block;
     height: 41px;
     position: absolute;
-    right: -40px;
+    left: -40px;
     top: 0;
     width: 40px;
     padding: 3px;
@@ -1187,5 +1188,50 @@ ul.colors li a.color1.active:after {
 	}
 }
 
+/* 11 - Color Style Switcher  End
+---------------------------------------------------------------------- */
+
+
+
+/* 11 - login Switcher 
+---------------------------------------------------------------------- */
+
+#conexion {
+    background: none repeat scroll 0 0 rgba(0,0,0,.7);
+    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.08);
+    right: -189px;
+    position: fixed;
+    top: 250px;
+    width: 195px;
+    z-index: 9999;
+}
+#conexion div {
+    padding: 5px 10px;
+}
+#conexion .bottom {
+    background: none repeat scroll 0 0 rgba(0,0,0,.7);
+    color: #252525;
+    padding: 0;
+}
+#conexion .bottom a.settings {
+    background: none repeat scroll 0 0 rgba(0,0,0,.7);
+    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.08);
+    display: block;
+    height: 41px;
+    position: absolute;
+    left: -40px;
+    top: 0;
+    width: 40px;
+    padding: 3px;
+}
+#conexion .bottom a.settings i {
+    margin-left: 1px;
+    margin-top: 3px;
+    color: #ffffff;
+}
+.icon-2x{
+	font-size:28px;
+	line-height:30px;
+}
 /* 11 - Color Style Switcher  End
 ---------------------------------------------------------------------- */

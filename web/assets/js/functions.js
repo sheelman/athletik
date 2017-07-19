@@ -104,6 +104,12 @@ jQuery(document).ready(function($) {
   	$('.next-section .go-to-page-top').click(function() {
     	$('html,body').animate({scrollTop:$('#page-top').offset().top}, 1000);
   	});
+        $('.next-section .go-to-resultat').click(function() {
+    	$('html,body').animate({scrollTop:$('#resultat').offset().top}, 1000);
+  	});
+        $('.next-section .go-to-classement').click(function() {
+    	$('html,body').animate({scrollTop:$('#classement').offset().top}, 1000);
+  	});
 
   	/* Next Section End
 	-------------------------------------------------------------------*/

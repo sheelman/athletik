@@ -8,7 +8,7 @@ class __TwigTemplate_eb06cea6897fcd0190b5b480f9660ee60e7cc875ac6347494ee12119432
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("base.html.twig", "default/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("::base.html.twig", "default/index.html.twig", 1);
         $this->blocks = array(
             'body' => array($this, 'block_body'),
         );
@@ -16,34 +16,34 @@ class __TwigTemplate_eb06cea6897fcd0190b5b480f9660ee60e7cc875ac6347494ee12119432
 
     protected function doGetParent(array $context)
     {
-        return "base.html.twig";
+        return "::base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_20e621d35249297c956c728ba24a3a31dbb8f5d5214624c86590905fa13d8689 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_20e621d35249297c956c728ba24a3a31dbb8f5d5214624c86590905fa13d8689->enter($__internal_20e621d35249297c956c728ba24a3a31dbb8f5d5214624c86590905fa13d8689_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/index.html.twig"));
+        $__internal_45e0acaed95e92d3ab3b234c2e81311e68e1c780d5aaaf7f18da1bdf93e877fb = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_45e0acaed95e92d3ab3b234c2e81311e68e1c780d5aaaf7f18da1bdf93e877fb->enter($__internal_45e0acaed95e92d3ab3b234c2e81311e68e1c780d5aaaf7f18da1bdf93e877fb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/index.html.twig"));
 
-        $__internal_15e26ad8e33e9feccc3ca17da0518f2c8baac1080d33ccc60fee50092659fc35 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_15e26ad8e33e9feccc3ca17da0518f2c8baac1080d33ccc60fee50092659fc35->enter($__internal_15e26ad8e33e9feccc3ca17da0518f2c8baac1080d33ccc60fee50092659fc35_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/index.html.twig"));
+        $__internal_18fde4481e60404f909f69ca71e6d6243a97ae1ead4f3b6d4436907a0a67701e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_18fde4481e60404f909f69ca71e6d6243a97ae1ead4f3b6d4436907a0a67701e->enter($__internal_18fde4481e60404f909f69ca71e6d6243a97ae1ead4f3b6d4436907a0a67701e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_20e621d35249297c956c728ba24a3a31dbb8f5d5214624c86590905fa13d8689->leave($__internal_20e621d35249297c956c728ba24a3a31dbb8f5d5214624c86590905fa13d8689_prof);
+        $__internal_45e0acaed95e92d3ab3b234c2e81311e68e1c780d5aaaf7f18da1bdf93e877fb->leave($__internal_45e0acaed95e92d3ab3b234c2e81311e68e1c780d5aaaf7f18da1bdf93e877fb_prof);
 
         
-        $__internal_15e26ad8e33e9feccc3ca17da0518f2c8baac1080d33ccc60fee50092659fc35->leave($__internal_15e26ad8e33e9feccc3ca17da0518f2c8baac1080d33ccc60fee50092659fc35_prof);
+        $__internal_18fde4481e60404f909f69ca71e6d6243a97ae1ead4f3b6d4436907a0a67701e->leave($__internal_18fde4481e60404f909f69ca71e6d6243a97ae1ead4f3b6d4436907a0a67701e_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_c29fcff511ff7625b1da20fb95314ed5e58b8ba8b07fb72ca6ad9d286d853498 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_c29fcff511ff7625b1da20fb95314ed5e58b8ba8b07fb72ca6ad9d286d853498->enter($__internal_c29fcff511ff7625b1da20fb95314ed5e58b8ba8b07fb72ca6ad9d286d853498_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_21aab73488119588c3956afe9b042c7409d1651c2c46db202d147cf949d39216 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_21aab73488119588c3956afe9b042c7409d1651c2c46db202d147cf949d39216->enter($__internal_21aab73488119588c3956afe9b042c7409d1651c2c46db202d147cf949d39216_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_21eea202763f50fa62bf304a83af4811547636743b232d3b0fce0a31b06b197a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_21eea202763f50fa62bf304a83af4811547636743b232d3b0fce0a31b06b197a->enter($__internal_21eea202763f50fa62bf304a83af4811547636743b232d3b0fce0a31b06b197a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_c756f3a3b914cd7717529c5ef2786532b2d4771f4b0f88eacaaf0c2f3ab06c13 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c756f3a3b914cd7717529c5ef2786532b2d4771f4b0f88eacaaf0c2f3ab06c13->enter($__internal_c756f3a3b914cd7717529c5ef2786532b2d4771f4b0f88eacaaf0c2f3ab06c13_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "    <body>
@@ -249,7 +249,8 @@ class __TwigTemplate_eb06cea6897fcd0190b5b480f9660ee60e7cc875ac6347494ee12119432
                         Chaque course a son résultat
                     </h2><!-- /.Section-title  -->
                     <p class=\"section-description\">
-                        Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
+                        « La course est un grand point d'interrogation qui est là chaque jour. Elle vous demande : « Est-ce que vous allez être une mauviette ou allez vous être fort aujourd'hui ? »
+                        - Peter Maher, marathonien canadien
                     </p><!-- /.section-description -->
 
                     <article class=\"box\">
@@ -291,7 +292,8 @@ class __TwigTemplate_eb06cea6897fcd0190b5b480f9660ee60e7cc875ac6347494ee12119432
                         Qui est le premier ! 
                     </h2><!-- /.Section-title  -->
                     <p class=\"section-description\">
-                        Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
+                        « Courir est un sanctuaire pour moi. Ça me tient centré. Je ne peux pas prendre mon téléphone portable ou mon ordinateur. Je peux ne pas être disponible et être totalement égoïste. »
+                        - Tanna Frederick, Actrice
                     </p><!-- /.section-description -->
 
                     <article class=\"box\">
@@ -316,13 +318,14 @@ class __TwigTemplate_eb06cea6897fcd0190b5b480f9660ee60e7cc875ac6347494ee12119432
 
         </section><!-- /#classement -->
         <!-- Classement général Section End -->
+
     </body>
 ";
         
-        $__internal_21eea202763f50fa62bf304a83af4811547636743b232d3b0fce0a31b06b197a->leave($__internal_21eea202763f50fa62bf304a83af4811547636743b232d3b0fce0a31b06b197a_prof);
+        $__internal_c756f3a3b914cd7717529c5ef2786532b2d4771f4b0f88eacaaf0c2f3ab06c13->leave($__internal_c756f3a3b914cd7717529c5ef2786532b2d4771f4b0f88eacaaf0c2f3ab06c13_prof);
 
         
-        $__internal_c29fcff511ff7625b1da20fb95314ed5e58b8ba8b07fb72ca6ad9d286d853498->leave($__internal_c29fcff511ff7625b1da20fb95314ed5e58b8ba8b07fb72ca6ad9d286d853498_prof);
+        $__internal_21aab73488119588c3956afe9b042c7409d1651c2c46db202d147cf949d39216->leave($__internal_21aab73488119588c3956afe9b042c7409d1651c2c46db202d147cf949d39216_prof);
 
     }
 
@@ -351,7 +354,7 @@ class __TwigTemplate_eb06cea6897fcd0190b5b480f9660ee60e7cc875ac6347494ee12119432
 
     public function getSourceContext()
     {
-        return new Twig_Source("{% extends 'base.html.twig' %}
+        return new Twig_Source("{% extends '::base.html.twig' %}
 
 {% block body %}
     <body>
@@ -557,7 +560,8 @@ class __TwigTemplate_eb06cea6897fcd0190b5b480f9660ee60e7cc875ac6347494ee12119432
                         Chaque course a son résultat
                     </h2><!-- /.Section-title  -->
                     <p class=\"section-description\">
-                        Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
+                        « La course est un grand point d'interrogation qui est là chaque jour. Elle vous demande : « Est-ce que vous allez être une mauviette ou allez vous être fort aujourd'hui ? »
+                        - Peter Maher, marathonien canadien
                     </p><!-- /.section-description -->
 
                     <article class=\"box\">
@@ -599,7 +603,8 @@ class __TwigTemplate_eb06cea6897fcd0190b5b480f9660ee60e7cc875ac6347494ee12119432
                         Qui est le premier ! 
                     </h2><!-- /.Section-title  -->
                     <p class=\"section-description\">
-                        Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
+                        « Courir est un sanctuaire pour moi. Ça me tient centré. Je ne peux pas prendre mon téléphone portable ou mon ordinateur. Je peux ne pas être disponible et être totalement égoïste. »
+                        - Tanna Frederick, Actrice
                     </p><!-- /.section-description -->
 
                     <article class=\"box\">
@@ -624,6 +629,7 @@ class __TwigTemplate_eb06cea6897fcd0190b5b480f9660ee60e7cc875ac6347494ee12119432
 
         </section><!-- /#classement -->
         <!-- Classement général Section End -->
+
     </body>
 {% endblock %}
 ", "default/index.html.twig", "/home/sheelman/Bureau/web/synfony/athletik/app/Resources/views/default/index.html.twig");

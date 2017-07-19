@@ -50,17 +50,31 @@ jQuery(document).ready(function($) {
 			return false;
 		});
 
-		
+		/*switcher color select placement et mouvement*/
 		$("#color-style-switcher .bottom a.settings").click(function(e){
 			e.preventDefault();
 			var div = $("#color-style-switcher");
-			if (div.css("left") === "-189px") {
+			if (div.css("right") === "-189px") {
 				$("#color-style-switcher").animate({
-					left: "0px"
+					right: "0px"
 				}); 
 			} else {
 				$("#color-style-switcher").animate({
-					left: "-189px"
+					right: "-189px"
+				});
+			}
+		})
+                /*switcher login select placement et mouvement*/
+                $("#conexion .bottom a.settings").click(function(e){
+			e.preventDefault();
+			var div = $("#conexion");
+			if (div.css("right") === "-189px") {
+				$("#conexion").animate({
+					right: "0px"
+				}); 
+			} else {
+				$("#conexion").animate({
+					right: "-189px"
 				});
 			}
 		})
