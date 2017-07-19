@@ -65,11 +65,11 @@
                 <!-- Main navigation -->
                 <ul id="headernavigation" class="nav navbar-nav">
                     <li class="active"><a href="#page-top">Home</a></li>
-                    <li><a href="#conexion">Conexion</a></li>
-                    <li><a href="#lettre">Lettre du président</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#resultat">Résultat des courses</a></li>	
-                    <li><a href="#classement">Classement Général</a></li>	
+                    <li><a href="{{ path('homepage', {'_fragment': 'conexion'}) }}">Conexion</a></li>
+                    <li><a href="{{ path('presentation', {'_fragment': 'lettre'}) }}">Lettre du président</a></li>
+                    <li><a href="{{ path('presentation', {'_fragment': 'portfolio'}) }}">Portfolio</a></li>
+                    <li><a href="{{ path('tableaux', {'_fragment': 'resultat'}) }}">Résultat des courses</a></li>	
+                    <li><a href="{{ path('tableaux', {'_fragment': 'classement'}) }}">Classement Général</a></li>	
                     <li><a href="#contact">Contact</a></li>		
                 </ul> <!-- /.nav .navbar-nav -->
             </nav> <!-- /.navbar-collapse  -->
@@ -175,7 +175,7 @@
 				</h2><!-- /.Section-title  -->
 				<p class="section-description">
 					«Si vous courez, vous êtes un coureur. Peu importe à quelle vitesse ou quelle distance. Ce n'est pas grave si aujourd'hui est votre premier jour ou si vous courez depuis vingt ans. Il n'existe aucun test à passer, aucun permis à gagner, pas de carte de membre à obtenir. Vous n’avez qu’à courir. »
-- John Bingham
+                                        - John Bingham
 				</p><!-- /.section-description -->
 
 				<form id="contact-form" action="#" method="post" class="clearfix">
@@ -283,8 +283,7 @@
 
 
 
-	<!-- jQuery Library -->
-        <script src="assets/js/jquery.js"></script>
+	<!-- jQuery Library -->      
 	<script type="text/javascript" src="assets/js/jquery-2.1.0.min.js"></script>
 	<!-- Modernizr js -->
 	<script type="text/javascript" src="assets/js/modernizr-2.8.0.min.js"></script>

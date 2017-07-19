@@ -117,41 +117,10 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
         }
 
-        if (0 === strpos($pathinfo, '/login')) {
-            // fos_user_security_login
-            if ('/login' === $pathinfo) {
-                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
-                    $allow = array_merge($allow, array('GET', 'POST'));
-                    goto not_fos_user_security_login;
-                }
-
-                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'fos_user_security_login',);
-            }
-            not_fos_user_security_login:
-
-            // fos_user_security_check
-            if ('/login_check' === $pathinfo) {
-                if ('POST' !== $canonicalMethod) {
-                    $allow[] = 'POST';
-                    goto not_fos_user_security_check;
-                }
-
-                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::checkAction',  '_route' => 'fos_user_security_check',);
-            }
-            not_fos_user_security_check:
-
+        // presentation
+        if ('/presentation' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::presentationAction',  '_route' => 'presentation',);
         }
-
-        // fos_user_security_logout
-        if ('/logout' === $pathinfo) {
-            if (!in_array($canonicalMethod, array('GET', 'POST'))) {
-                $allow = array_merge($allow, array('GET', 'POST'));
-                goto not_fos_user_security_logout;
-            }
-
-            return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::logoutAction',  '_route' => 'fos_user_security_logout',);
-        }
-        not_fos_user_security_logout:
 
         if (0 === strpos($pathinfo, '/profile')) {
             // fos_user_profile_show
@@ -193,7 +162,48 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        elseif (0 === strpos($pathinfo, '/register')) {
+        // tableaux
+        if ('/tableaux' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::tableauxAction',  '_route' => 'tableaux',);
+        }
+
+        if (0 === strpos($pathinfo, '/login')) {
+            // fos_user_security_login
+            if ('/login' === $pathinfo) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_fos_user_security_login;
+                }
+
+                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'fos_user_security_login',);
+            }
+            not_fos_user_security_login:
+
+            // fos_user_security_check
+            if ('/login_check' === $pathinfo) {
+                if ('POST' !== $canonicalMethod) {
+                    $allow[] = 'POST';
+                    goto not_fos_user_security_check;
+                }
+
+                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::checkAction',  '_route' => 'fos_user_security_check',);
+            }
+            not_fos_user_security_check:
+
+        }
+
+        // fos_user_security_logout
+        if ('/logout' === $pathinfo) {
+            if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                $allow = array_merge($allow, array('GET', 'POST'));
+                goto not_fos_user_security_logout;
+            }
+
+            return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::logoutAction',  '_route' => 'fos_user_security_logout',);
+        }
+        not_fos_user_security_logout:
+
+        if (0 === strpos($pathinfo, '/register')) {
             // fos_user_registration_register
             if ('/register' === $trimmedPathinfo) {
                 if (!in_array($canonicalMethod, array('GET', 'POST'))) {

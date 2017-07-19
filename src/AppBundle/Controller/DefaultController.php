@@ -18,4 +18,21 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+     /**
+     * @Route("/presentation", name="presentation")
+     */
+    public function presentationAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/presentation.html.twig', []);
+    }
+    /**
+     * @Route("/tableaux", name="tableaux")
+     */
+    public function tableauxAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/tableaux.html.twig', []);
+    }
+    
 }

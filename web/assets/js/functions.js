@@ -2,14 +2,18 @@
 /* Background Images
 -------------------------------------------------------------------*/
 var  pageTopImage = jQuery('#page-top').data('background-image');
-var  aboutImage = jQuery('#portfolio').data('background-image');
-var  subscribeImage = jQuery('#lettre').data('background-image');
+var  portfolioImage = jQuery('#portfolio').data('background-image');
+var  lettreImage = jQuery('#lettre').data('background-image');
 var  contactImage = jQuery('#contact').data('background-image');
+var  resultatImage = jQuery('#resultat').data('background-image');
+var  classementImage = jQuery('#classement').data('background-image');
 
 if (pageTopImage) {  jQuery('#page-top').css({ 'background-image':'url(' + pageTopImage + ')' }); };
-if (aboutImage) {  jQuery('#portfolio').css({ 'background-image':'url(' + aboutImage + ')' }); };
-if (subscribeImage) {  jQuery('#lettre').css({ 'background-image':'url(' + subscribeImage + ')' }); };
+if (portfolioImage) {  jQuery('#portfolio').css({ 'background-image':'url(' + portfolioImage + ')' }); };
+if (lettreImage) {  jQuery('#lettre').css({ 'background-image':'url(' + lettreImage + ')' }); };
 if (contactImage) {  jQuery('#contact').css({ 'background-image':'url(' + contactImage + ')' }); };
+if (resultatImage) {  jQuery('#resultat').css({ 'background-image':'url(' + resultatImage + ')' }); };
+if (classementImage) {  jQuery('#classement').css({ 'background-image':'url(' + classementImage + ')' }); };
 
 /* Background Images End
 -------------------------------------------------------------------*/
