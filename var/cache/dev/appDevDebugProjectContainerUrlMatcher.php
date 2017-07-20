@@ -117,11 +117,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\indexController::indexAction',  '_route' => 'homepage',);
         }
 
-        // admintest
-        if ('/admin/test' === $pathinfo) {
-            return array (  '_controller' => 'AppBundle\\Controller\\indexController::testAction',  '_route' => 'admintest',);
-        }
-
         if (0 === strpos($pathinfo, '/login')) {
             // fos_user_security_login
             if ('/login' === $pathinfo) {

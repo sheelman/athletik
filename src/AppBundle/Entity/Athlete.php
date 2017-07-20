@@ -27,9 +27,9 @@ class Athlete
     private $lastname;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="birthdate", type="date", nullable=false)
+     * @ORM\Column(name="birthdate", type="string", nullable=false)
      */
     private $birthdate;
 
@@ -95,7 +95,7 @@ class Athlete
     /**
      * Set birthdate
      *
-     * @param \DateTime $birthdate
+     * @param string $birthdate
      *
      * @return Athlete
      */
@@ -109,7 +109,7 @@ class Athlete
     /**
      * Get birthdate
      *
-     * @return \DateTime
+     * @return string
      */
     public function getBirthdate()
     {

@@ -25,7 +25,7 @@ Tags: HTML, Template, Coming Soon, Kite
 *  3 - Main Menu 
 *  4 - Page Top Section   
 *  5 - About Us Section
-*  6 - Subscribe Section
+*  6 - Tableaux Section
 *  7 - Contact Section
 *  8 - Footer Section  
 *  9 - Media Query 
@@ -637,11 +637,10 @@ a:focus{
 
 
 
-/* 6 - Subscribe Section
----------------------------------------------------------------------- */
+/* 6 - Tableaux Section
 
 
-/* 6 - Subscribe Section End 
+/* 6 - Tableaux Section End 
 ---------------------------------------------------------------------- */
 
 
@@ -1238,5 +1237,7 @@ ul.colors li a.color1.active:after {
 	font-size:28px;
 	line-height:30px;
 }
+
+
 /* 11 - Color Style Switcher  End
 ---------------------------------------------------------------------- */
