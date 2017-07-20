@@ -1205,7 +1205,12 @@ ul.colors li a.color1.active:after {
     width: 195px;
     z-index: 9999;
 }
-#conexion div {
+#conection div h3 {
+    color: #ffffff;
+    font-size: 100px;
+    margin: 8px 3px 12px;
+}
+#conection div {
     padding: 5px 10px;
 }
 #conexion .bottom {

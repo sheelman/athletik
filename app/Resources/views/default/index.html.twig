@@ -1,9 +1,7 @@
-{% extends '::base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block body %}
-    <body>
-
-        <!-- Lettre du président section -->
+{% block letter %}
+            <!-- Lettre du président section -->
         <section id="lettre" class="section-style" data-background-image="images/background/courir-de-nuit1.jpg">
             <div class="pattern height-resize">
                 <div class="container">
@@ -53,9 +51,9 @@
 
         </section><!-- /#lettre -->
         <!-- Lettre du président section End -->
+{%endblock%}
 
-
-
+{% block portfolio %}
         <!-- Portfolio Us Section -->
         <section id="portfolio" class="section-style" data-background-image="images/background/runners-752493_1920.jpg">
             <div class="pattern height-resize">
@@ -188,9 +186,9 @@
             </div><!-- /.pattern -->
         </section><!-- /#portfolio -->
         <!-- Portfolio Section End -->
+{%endblock%}
 
-
-
+{% block resultat %}
         <!-- Résultat des courses Section -->
         <section id="resultat" class="section-style" data-background-image="images/background/lampes-frontales_generale_0.jpg">
             <div class="pattern height-resize"> 
@@ -231,13 +229,20 @@
 
         </section><!-- /#resultat -->
         <!-- Résultat des courses Section End -->
+{%endblock%}
 
+{% block classement %}
+    
 
-
+    
         <!-- Classement général Section -->
         <section id="classement" class="section-style" data-background-image="images/background/static1.squarespace.com.jpeg">
+            
             <div class="pattern height-resize">
                 <div class="container">
+                            {% if is_granted('ROLE_USER') %}
+            <h1>je suis user!!!!!!!</h1>
+{% endif %}
                     <h3 class="section-name">
                         <span>
                             Classement général
@@ -273,6 +278,48 @@
 
         </section><!-- /#classement -->
         <!-- Classement général Section End -->
+{%endblock%}
+          {% block conexion_switcher %}               
+            <!-- conexion Switcher  -->
+            <section id="conexion">
+                <div>
 
-    </body>
-{% endblock %}
+                        <h3>Conexion</h3>
+                        
+                        <div class="login">
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                                <a href="{{ path('fos_user_security_logout') }}">
+                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                            {% else %}
+                                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                            {% endif %}
+                        </div>
+
+                    {% if app.request.hasPreviousSession %}
+                        {% for type, messages in app.session.flashbag.all() %}
+                            {% for message in messages %}
+                                <div class="flash-{{ type }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+
+                        <div>
+                            {% block fos_user_content %}
+                            {% endblock fos_user_content %}
+                        </div>
+                    <div class="menu">
+                        <a href="/#">Home</a>
+                        <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                        <a href="{{ path('fos_user_profile_show') }}" >Mon Profil</a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <a href="#" class="settings"><i class="fa fa-user icon-2x"></i></a>
+                </div>
+            </section>
+            <!-- Conexion Switcher End -->
+        {% endblock %}
