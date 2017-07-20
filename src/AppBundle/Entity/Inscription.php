@@ -42,5 +42,62 @@ class Inscription
     private $athlete;
 
 
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set meeting
+     *
+     * @param \AppBundle\Entity\Meeting $meeting
+     *
+     * @return Inscription
+     */
+    public function setMeeting(\AppBundle\Entity\Meeting $meeting = null)
+    {
+        $this->meeting = $meeting;
+
+        return $this;
+    }
+
+    /**
+     * Get meeting
+     *
+     * @return \AppBundle\Entity\Meeting
+     */
+    public function getMeeting()
+    {
+        return $this->meeting;
+    }
+
+    /**
+     * Set athlete
+     *
+     * @param \AppBundle\Entity\Athlete $athlete
+     *
+     * @return Inscription
+     */
+    public function setAthlete(\AppBundle\Entity\Athlete $athlete = null)
+    {
+        $this->athlete = $athlete;
+
+        return $this;
+    }
+
+    /**
+     * Get athlete
+     *
+     * @return \AppBundle\Entity\Athlete
+     */
+    public function getAthlete()
+    {
+        return $this->athlete;
+    }
+}
