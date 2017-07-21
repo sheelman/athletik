@@ -8,8 +8,12 @@
             <div class="pattern height-resize">
                 <div class="container">
                     
+                    {% if is_granted('ROLE_ADMIN') %}
+            <h1>je suis ADMIN!!!!!!!</h1>
+{% endif %}
+
                     {% if is_granted('ROLE_USER') %}
-            <h1>je suis user!!!!!!!</h1>
+            <h1>je suis USER!!!!!!!</h1>
 {% endif %}
                     <h3 class="section-name">
                         <span>
@@ -213,11 +217,17 @@
                     </p><!-- /.section-description -->
 
                     <article class="box">
-                        <header>
-                            {#{% if result is defined %}vérifie si la variable est définie sinon ne l'utilise pas ce qui permet d'éviter des erreur sur les page ou elle apparais#}
-                            <h2>Résultats de : {{ (result.0.name) }}</h2>
+                        <theader>
+                            {#{% if result is defined %}{% endif %}vérifie si la variable est définie sinon ne l'utilise pas ce qui permet d'éviter des erreur sur les page ou elle apparais#}
+                                <h2>Résultats de :  <select placeholder="course">
+                                                    
+                                                   {% for meeting in meetings %}
+                                                    <option>{{ (meeting.name) }}                                                     
+                                                   {% endfor %}
+                                                    </select>
+                                </h2>
                             <p>2017</p>
-                        </header>
+                        </theader>
                             
                         <div class="content">
                         <table class="table table-inverse">
@@ -242,7 +252,7 @@
                                 </tr>
                                 
                             {% endfor %}
-                            {#{% endif %}#}
+                            
                             </tbody>
                         </table>                       
                         </div>
@@ -342,7 +352,9 @@
                         </div>
                     <div class="menu">
                         <a href="/#">Home</a>
+                        <br/>
                         <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                        <br/>
                         <a href="{{ path('fos_user_profile_show') }}" >Mon Profil</a>
                     </div>
                 </div>

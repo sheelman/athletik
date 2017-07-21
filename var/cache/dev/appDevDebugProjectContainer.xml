@@ -662,7 +662,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>5HcfdO1otozqdBfcIWCR+z</argument>
+      <argument>1zdw8D8+UCxe-wsDxRVslF</argument>
       <argument>/home/sheelman/Bureau/web/synfony/athletik/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -672,7 +672,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>5HcfdO1otozqdBfcIWCR+z</argument>
+      <argument>1zdw8D8+UCxe-wsDxRVslF</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2100,6 +2100,14 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
+        <argument>console.command</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -3116,12 +3124,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5970c087ae4cd4.54498201</argument>
+      <argument>5971c41f5a6560.61926741</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5970c087ae4cd4.54498201</argument>
+      <argument>5971c41f5a6560.61926741</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -4569,7 +4577,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>TpMJIblwTc</argument>
       <argument>0</argument>
-      <argument>5HcfdO1otozqdBfcIWCR+z</argument>
+      <argument>1zdw8D8+UCxe-wsDxRVslF</argument>
       <argument>/home/sheelman/Bureau/web/synfony/athletik/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4577,7 +4585,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>HQtuxl7g7s</argument>
       <argument>0</argument>
-      <argument>5HcfdO1otozqdBfcIWCR+z</argument>
+      <argument>1zdw8D8+UCxe-wsDxRVslF</argument>
       <argument>/home/sheelman/Bureau/web/synfony/athletik/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4585,7 +4593,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>sZXb8UQsaH</argument>
       <argument>0</argument>
-      <argument>5HcfdO1otozqdBfcIWCR+z</argument>
+      <argument>1zdw8D8+UCxe-wsDxRVslF</argument>
       <argument>/home/sheelman/Bureau/web/synfony/athletik/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4593,7 +4601,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>cttph4yvXt</argument>
       <argument>0</argument>
-      <argument>5HcfdO1otozqdBfcIWCR+z</argument>
+      <argument>1zdw8D8+UCxe-wsDxRVslF</argument>
       <argument>/home/sheelman/Bureau/web/synfony/athletik/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

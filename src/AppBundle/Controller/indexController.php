@@ -20,10 +20,14 @@ class indexController extends Controller
     public function indexAction(Request $request)
     {
        $em = $this->getDoctrine()->getManager();
-            $meetingName = $em->getRepository("AppBundle:Meeting")->findAll();
+            $meetings = $em->getRepository("AppBundle:Meeting")->findAll();
             $repository=$em->getRepository("AppBundle:Result");
             $athletes = $repository->findBy( array('meeting'=> '1'), array('points'=>'DESC'));
-        return $this->render('default/index.html.twig', ['result'=>$meetingName, 'athletes'=>$athletes]);    
+            $athletes2 = $repository->findBy( array('meeting'=> '2'), array('points'=>'DESC'));
+            $athletes3 = $repository->findBy( array('meeting'=> '3'), array('points'=>'DESC'));
+            $athletes4 = $repository->findBy( array('meeting'=> '4'), array('points'=>'DESC'));
+            $athletes5 = $repository->findBy( array('meeting'=> '5'), array('points'=>'DESC'));
+        return $this->render('default/index.html.twig', ['meetings'=>$meetings, 'athletes'=>$athletes, 'athletes2'=>$athletes2, 'athletes3'=>$athletes3, 'athletes4'=>$athletes4, 'athletes5'=>$athletes5]);    
     }
 
 }
