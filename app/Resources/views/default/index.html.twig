@@ -218,13 +218,16 @@
 
                     <article class="box">
                         <theader>
-                            {#{% if result is defined %}{% endif %}vérifie si la variable est définie sinon ne l'utilise pas ce qui permet d'éviter des erreur sur les page ou elle apparais#}
-                                <h2>Résultats de :  <select placeholder="course">
-                                                    
-                                                   {% for meeting in meetings %}
-                                                    <option>{{ (meeting.name) }}                                                     
-                                                   {% endfor %}
-                                                    </select>
+                          {#{% if result is defined %} {% endif %} vérifie si la variable est définie sinon ne l'utilise pas ce qui permet d'éviter des erreur sur les page ou elle apparais#}
+                                <h2>Résultats de : 
+                                    <form>
+                                        <select name="meeting"  onchange="this.form.submit()">
+                                                <option placeholder="course"></option>
+                                            {% for result in meetings %}                                             
+                                                <option value="{{ result.id }}" {% if selectedMeeting is not null %} {% if selectedMeeting.id == result.id %} selected="selected" {% endif %} {% endif %}> {{ result.name }}</option>                                   
+                                            {% endfor %}
+                                        </select>
+                                    </form>
                                 </h2>
                             <p>2017</p>
                         </theader>
@@ -241,14 +244,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            {% for result in athletes %}
+                            {% for athletes in results %}
                                 
                                 <tr>
                                     <th scope="row"></th>
-                                    <td>{{ result.athlete.firstname }}</td>
-                                    <td>{{ result.athlete.lastname }}</td>
-                                    <td>{{ result.time }}</td>
-                                    <td>{{ result.points }}</td>
+                                    <td>{{ athletes.athlete.firstname }}</td>
+                                    <td>{{ athletes.athlete.lastname }}</td>
+                                    <td>{{ athletes.time }}</td>
+                                    <td>{{ athletes.points }}</td>
                                 </tr>
                                 
                             {% endfor %}

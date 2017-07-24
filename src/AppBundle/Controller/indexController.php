@@ -20,14 +20,22 @@ class indexController extends Controller
     public function indexAction(Request $request)
     {
        $em = $this->getDoctrine()->getManager();
+       
+       
+            
+            //affiche le nom d'une course
             $meetings = $em->getRepository("AppBundle:Meeting")->findAll();
-            $repository=$em->getRepository("AppBundle:Result");
-            $athletes = $repository->findBy( array('meeting'=> '1'), array('points'=>'DESC'));
-            $athletes2 = $repository->findBy( array('meeting'=> '2'), array('points'=>'DESC'));
-            $athletes3 = $repository->findBy( array('meeting'=> '3'), array('points'=>'DESC'));
-            $athletes4 = $repository->findBy( array('meeting'=> '4'), array('points'=>'DESC'));
-            $athletes5 = $repository->findBy( array('meeting'=> '5'), array('points'=>'DESC'));
-        return $this->render('default/index.html.twig', ['meetings'=>$meetings, 'athletes'=>$athletes, 'athletes2'=>$athletes2, 'athletes3'=>$athletes3, 'athletes4'=>$athletes4, 'athletes5'=>$athletes5]);    
+            
+            //récupérer un id de course
+            $id = $request->query->get('meeting');
+            $selectedMeeting= $em->getRepository("AppBundle:Meeting")->findOneBy(array('id'=>$id));
+            
+            
+            //affiche le resultat des athletes par l'id de la course avec le temps
+            $result = $em ->getRepository('AppBundle:Result');
+            $resultglobo = $result->findBy(array('meeting'=>$id), array('points'=>'DESC'));
+         
+        return $this->render('default/index.html.twig', ['meetings'=>$meetings, 'results'=>$resultglobo, 'selectedMeeting'=>$selectedMeeting]);    
     }
 
 }

@@ -15,20 +15,20 @@ class __TwigTemplate_32933b0dfd2a5074f0eb9d22a082b4fab743a42f9d3929281de967e3f57
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_52a7877a6847725992c22e3eb22ace0eef10609d2f1582b8459a42d7d64dbe94 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_52a7877a6847725992c22e3eb22ace0eef10609d2f1582b8459a42d7d64dbe94->enter($__internal_52a7877a6847725992c22e3eb22ace0eef10609d2f1582b8459a42d7d64dbe94_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/password_widget.html.php"));
+        $__internal_5e70a78e8bba48ac8ceb83bf5cf567a02885a4417d8e26c8bea0f9652d361d06 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5e70a78e8bba48ac8ceb83bf5cf567a02885a4417d8e26c8bea0f9652d361d06->enter($__internal_5e70a78e8bba48ac8ceb83bf5cf567a02885a4417d8e26c8bea0f9652d361d06_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/password_widget.html.php"));
 
-        $__internal_db6ad22fef85a428b65dcccef7d8d08a536a3ba2367ea323689d95cba3b275c8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_db6ad22fef85a428b65dcccef7d8d08a536a3ba2367ea323689d95cba3b275c8->enter($__internal_db6ad22fef85a428b65dcccef7d8d08a536a3ba2367ea323689d95cba3b275c8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/password_widget.html.php"));
+        $__internal_40315a3af9cf95eb72e601bd7468113dc2434a25f1fc6e2efc188c5a9edd604c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_40315a3af9cf95eb72e601bd7468113dc2434a25f1fc6e2efc188c5a9edd604c->enter($__internal_40315a3af9cf95eb72e601bd7468113dc2434a25f1fc6e2efc188c5a9edd604c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/password_widget.html.php"));
 
         // line 1
         echo "<?php echo \$view['form']->block(\$form, 'form_widget_simple', array('type' => isset(\$type) ? \$type : 'password')) ?>
 ";
         
-        $__internal_52a7877a6847725992c22e3eb22ace0eef10609d2f1582b8459a42d7d64dbe94->leave($__internal_52a7877a6847725992c22e3eb22ace0eef10609d2f1582b8459a42d7d64dbe94_prof);
+        $__internal_5e70a78e8bba48ac8ceb83bf5cf567a02885a4417d8e26c8bea0f9652d361d06->leave($__internal_5e70a78e8bba48ac8ceb83bf5cf567a02885a4417d8e26c8bea0f9652d361d06_prof);
 
         
-        $__internal_db6ad22fef85a428b65dcccef7d8d08a536a3ba2367ea323689d95cba3b275c8->leave($__internal_db6ad22fef85a428b65dcccef7d8d08a536a3ba2367ea323689d95cba3b275c8_prof);
+        $__internal_40315a3af9cf95eb72e601bd7468113dc2434a25f1fc6e2efc188c5a9edd604c->leave($__internal_40315a3af9cf95eb72e601bd7468113dc2434a25f1fc6e2efc188c5a9edd604c_prof);
 
     }
 
