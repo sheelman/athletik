@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block timer %}{%endblock%}
+
 {% block fin %}
                         <div class="next-section">
                             <a class="go-to-resultat"><span></span></a>
@@ -7,14 +9,6 @@
 {%endblock%}
                     
 {% block resultat %}
-
-    {% if is_granted('ROLE_ADMIN') %}
-        <h1>je suis ADMIN!!!!!!!</h1>
-    {% endif %}
-
-    {% if is_granted('ROLE_USER') %}
-        <h1>je suis USER!!!!!!!</h1>
-    {% endif %}
 
     <!-- Résultat des courses Section -->
     <section id="resultat" class="section-style" data-background-image="{{ asset('images/background/lampes-frontales_generale_0.jpg') }}">
@@ -35,8 +29,7 @@
 
                 <article class="box">
                     <theader>
-                        {#{% if result is defined %} {% endif %} vérifie si la variable est définie sinon ne l'utilise pas ce qui permet d'éviter des erreur sur les page ou elle apparais#}
-                        <h2>Résultats de : 
+                        <h2>Résultats de :</h2> 
                             <form>
                                 <select name="meeting"  onchange="this.form.submit()">
                                     <option placeholder="course"></option>
@@ -45,7 +38,7 @@
                                     {% endfor %}
                                 </select>
                             </form>
-                        </h2>
+                        
                         <p>2017</p>
                     </theader>
 

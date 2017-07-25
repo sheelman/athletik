@@ -24,7 +24,7 @@ Tags: HTML, Template, Coming Soon, Kite
 *    2.4 - Height Resize
 *  3 - Main Menu 
 *  4 - Page Top Section   
-*  5 - About Us Section
+*  5 - Gestion box Us Section
 *  6 - Tableaux Section
 *  7 - Contact Section
 *  8 - Footer Section  
@@ -569,9 +569,18 @@ a:focus{
 
 
 
-/* 5 - About Us Section
+/* 5 - Gestion box Us Section
 ---------------------------------------------------------------------- */
 /* Box */
+
+.rbox{
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    margin-bottom: 2em;
+    overflow: hidden;
+    padding: 4em;
+    
+}
 
 .box {
     background: rgba(0, 0, 0, 0.5);

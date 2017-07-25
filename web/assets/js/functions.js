@@ -7,6 +7,10 @@ var  lettreImage = jQuery('#lettre').data('background-image');
 var  contactImage = jQuery('#contact').data('background-image');
 var  resultatImage = jQuery('#resultat').data('background-image');
 var  classementImage = jQuery('#classement').data('background-image');
+var  registerImage = jQuery('#register').data('background-image');
+var  loginImage = jQuery('#login').data('background-image');
+var  profileImage = jQuery('#profile').data('background-image');
+
 
 if (pageTopImage) {  jQuery('#page-top').css({ 'background-image':'url(' + pageTopImage + ')' }); };
 if (portfolioImage) {  jQuery('#portfolio').css({ 'background-image':'url(' + portfolioImage + ')' }); };
@@ -14,6 +18,9 @@ if (lettreImage) {  jQuery('#lettre').css({ 'background-image':'url(' + lettreIm
 if (contactImage) {  jQuery('#contact').css({ 'background-image':'url(' + contactImage + ')' }); };
 if (resultatImage) {  jQuery('#resultat').css({ 'background-image':'url(' + resultatImage + ')' }); };
 if (classementImage) {  jQuery('#classement').css({ 'background-image':'url(' + classementImage + ')' }); };
+if (registerImage) {  jQuery('#register').css({ 'background-image':'url(' + registerImage + ')' }); };
+if (loginImage) {  jQuery('#login').css({ 'background-image':'url(' + loginImage + ')' }); };
+if (profileImage) {  jQuery('#profile').css({ 'background-image':'url(' + profileImage + ')' }); };
 
 /* Background Images End
 -------------------------------------------------------------------*/
@@ -109,6 +116,15 @@ jQuery(document).ready(function($) {
   	});
         $('.next-section .go-to-classement').click(function() {
     	$('html,body').animate({scrollTop:$('#classement').offset().top}, 1000);
+  	});
+        $('.next-section .go-to-register').click(function() {
+    	$('html,body').animate({scrollTop:$('#register').offset().top}, 1000);
+  	});
+        $('.next-section .go-to-login').click(function() {
+    	$('html,body').animate({scrollTop:$('#login').offset().top}, 1000);
+  	});
+        $('.next-section .go-to-profile').click(function() {
+    	$('html,body').animate({scrollTop:$('#profile').offset().top}, 1000);
   	});
 
   	/* Next Section End

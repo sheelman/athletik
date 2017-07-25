@@ -71,7 +71,7 @@
                 <nav class="collapse navbar-collapse">
                     <!-- Main navigation -->
                     <ul id="headernavigation" class="nav navbar-nav">
-                        <li class="active"><a href="#page-top">Home</a></li>
+                        <li class="active"><a href="{{ asset('#page-top')}}">Home</a></li>
                         <li><a href="{{ asset('#lettre')}}">Lettre du président</a></li>
                         <li><a href="{{ asset('#portfolio')}}">Portfolio</a></li>	
                         <li><a href="#contact">Contact</a></li>
@@ -84,7 +84,7 @@
             <!-- Main Menu End -->
         {% endblock %}
 
-        {% block timer %}
+        {% block title %}  
             <!-- Page Top Section -->
             <section id="page-top" class="section-style" data-background-image="{{ asset('images/background/runners-751853_1920.jpg')}}">
                 <div class="pattern height-resize">
@@ -102,7 +102,10 @@
                             Les 1000 pas
 
                         </h2><!-- /.Section-title  -->
-                        <div id="time_countdown" class="time-count-container">
+                    {% endblock %}   
+                    <div id="time_countdown" class="time-count-container">
+                        {% block timer %}               
+
 
                             <div class="col-sm-3">
                                 <div class="time-box">
@@ -170,6 +173,9 @@
         </section><!-- /#page-top -->
         <!-- Page Top Section  End -->
 
+    {% block conexion %}{%endblock%}
+{% block register %}{%endblock%}
+{% block profile %}{%endblock%}
 {% block letter %}{%endblock%}
 {% block portfolio %}{%endblock%}
 {% block resultat %}{%endblock%}
@@ -305,10 +311,7 @@
 
             <h3>Conexion</h3>
 
-            <div>
-                {% block profile %}
-                {% endblock profile %}
-            </div>
+
             <div class="menu">
                 <div>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -322,6 +325,8 @@
                 </div>
                 <br/>
                 <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                <br/>
+                <a href="{{ path('fos_user_profile_show') }}">Profile</a>
             </div>
         </div>
         <div class="bottom">

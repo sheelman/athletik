@@ -1,5 +1,38 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends 'base.html.twig' %}
 
-{% block fos_user_content %}
-{% include "@FOSUser/Registration/register_content.html.twig" %}
-{% endblock fos_user_content %}
+{% block timer %}{%endblock%}
+
+{% block fin %}
+    <div class="next-section">
+        <a class="go-to-register"><span></span></a>
+    </div><!-- /.next-section -->
+{%endblock%}
+
+{% block register %}
+
+    <!-- register Section -->
+    <section id="register" class="section-style" data-background-image="{{ asset('images/background/pieges-a-eviter-pour-se-remettre-a-la-course-a-pied.jpg') }}">   
+        <div class="pattern height-resize">
+            <div class="container">
+                <h3 class="section-name">
+                    <span>
+                        Pour ce connecter c'est ici
+                    </span>
+                </h3><!-- /.section-name -->
+
+                <article class="rbox">
+                    {% block fos_user_content %}
+                        {% include "@FOSUser/Registration/register_content.html.twig" %}
+                    {% endblock fos_user_content %}
+                </article>
+
+                <div class="next-section">
+                    <a class="go-to-contact"><span></span></a>
+                </div><!-- /.next-section -->
+
+            </div><!-- /.container -->
+        </div><!-- /.pattern -->
+
+    </section><!-- /#register -->
+    <!-- register Section End -->
+{%endblock%}

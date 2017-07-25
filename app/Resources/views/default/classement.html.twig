@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-
+{% block timer %}{%endblock%}
 
 {% block fin %}
                         <div class="next-section">
@@ -9,14 +9,6 @@
 {%endblock%}
 
 {% block classement %}
-
-    {% if is_granted('ROLE_ADMIN') %}
-        <h1>je suis ADMIN!!!!!!!</h1>
-    {% endif %}
-
-    {% if is_granted('ROLE_USER') %}
-        <h1>je suis USER!!!!!!!</h1>
-    {% endif %}
 
     <!-- Classement général Section -->
     <section id="classement" class="section-style" data-background-image="{{ asset('images/background/static1.squarespace.com.jpeg') }}">   
