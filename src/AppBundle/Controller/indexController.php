@@ -23,6 +23,8 @@ class indexController extends Controller
          
         return $this->render('default/index.html.twig', []);    
     }
+    
+    
      /**
      * @Route("/resultat", name="resultat")
      */
@@ -46,6 +48,8 @@ class indexController extends Controller
          
         return $this->render('default/resultat.html.twig', ['meetings'=>$meetings, 'results'=>$resultglobo, 'selectedMeeting'=>$selectedMeeting]);    
     }
+    
+    
      /**
      * @Route("/classement", name="classement")
      */
@@ -57,7 +61,28 @@ class indexController extends Controller
         $global=$em->getConnection()->prepare($sql);
         $global->execute();
         $resultat=$global->fetchAll();
-        return $this->render('default/classement.html.twig',['classement'=>$resultat]);
-            
+        return $this->render('default/classement.html.twig',['classement'=>$resultat]);            
+    }
+    
+    
+     /**
+     * @Route("/admin/master", name="master")
+     */
+    public function masterAction(Request $request)
+    {
+       
+         
+        return $this->render('default/master.html.twig', []);    
+    }
+        
+    
+     /**
+     * @Route("/user/inscription", name="inscription")
+     */
+    public function inscriptionAction(Request $request)
+    {
+       
+         
+        return $this->render('default/inscription.html.twig', []);    
     }
 }

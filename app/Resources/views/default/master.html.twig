@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{#{% if is_granted('ROLE_ADMIN') %}
+{% endif %} // A mettre a l'endroit ou l'on veut protéger une partie de page en  admin sinon mettre la page entière dans /admin#}
+
+{% block timer %}{%endblock%}
+
+{% block fin %}
+                        <div class="next-section">
+                            <a class="go-to-classement"><span></span></a>
+                        </div><!-- /.next-section -->
+{%endblock%}
+
+{% block classement %}
+
+    <!-- Classement général Section -->
+    <section id="classement" class="section-style" data-background-image="{{ asset('images/background/static1.squarespace.com.jpeg') }}">   
+        <div class="pattern height-resize">
+            <div class="container">
+                <h3 class="section-name">
+                    <span>
+                        Classement général
+                    </span>
+                </h3><!-- /.section-name -->
+                <h2 class="section-title">
+                    MASTER ! 
+                </h2><!-- /.Section-title  -->
+                <p class="section-description">
+                    « Courir est un sanctuaire pour moi. Ça me tient centré. Je ne peux pas prendre mon téléphone portable ou mon ordinateur. Je peux ne pas être disponible et être totalement égoïste. »
+                    - Tanna Frederick, Actrice
+                </p><!-- /.section-description -->
+
+                {#<article class="box">
+                    <header>
+                        <h2>Classement Général</h2>
+                        <p>2017</p>
+                    </header>
+                    <div class="content">
+                        <table class="table table-inverse">
+                            <thead>
+                                <tr>
+                                    <th>Prenom</th>
+                                    <th>Nom</th>
+                                    <th>Resultat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for result in classement %}
+
+                                    <tr>
+                                        <td>{{ result.firstname }}</td>
+                                        <td>{{ result.lastname }}</td>                                       
+                                        <td>{{ result.total }}</td>
+                                    </tr>
+
+                                {% endfor %}
+
+                            </tbody>
+                        </table> 
+                    </div>
+                    <footer>
+                        <a href="{{ asset('/') }}" class="button alt">Archive</a>
+                    </footer>
+                </article>#}
+
+                <div class="next-section">
+                    <a class="go-to-contact"><span></span></a>
+                </div><!-- /.next-section -->
+
+            </div><!-- /.container -->
+        </div><!-- /.pattern -->
+
+    </section><!-- /#classement -->
+    <!-- Classement général Section End -->
+{%endblock%}

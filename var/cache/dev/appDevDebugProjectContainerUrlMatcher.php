@@ -231,6 +231,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\indexController::classementAction',  '_route' => 'classement',);
         }
 
+        // master
+        if ('/admin/master' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\indexController::masterAction',  '_route' => 'master',);
+        }
+
+        // inscription
+        if ('/user/inscription' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\indexController::inscriptionAction',  '_route' => 'inscription',);
+        }
+
         if (0 === strpos($pathinfo, '/login')) {
             // fos_user_security_login
             if ('/login' === $pathinfo) {
