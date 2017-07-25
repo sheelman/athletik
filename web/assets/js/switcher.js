@@ -54,13 +54,13 @@ jQuery(document).ready(function($) {
 		$("#color-style-switcher .bottom a.settings").click(function(e){
 			e.preventDefault();
 			var div = $("#color-style-switcher");
-			if (div.css("right") === "-189px") {
+			if (div.css("left") === "-189px") {
 				$("#color-style-switcher").animate({
-					right: "0px"
+					left: "0px"
 				}); 
 			} else {
 				$("#color-style-switcher").animate({
-					right: "-189px"
+					left: "-189px"
 				});
 			}
 		})
@@ -68,13 +68,13 @@ jQuery(document).ready(function($) {
                 $("#conexion .bottom a.settings").click(function(e){
 			e.preventDefault();
 			var div = $("#conexion");
-			if (div.css("right") === "-189px") {
+			if (div.css("left") === "-189px") {
 				$("#conexion").animate({
-					right: "0px"
+					left: "0px"
 				}); 
 			} else {
 				$("#conexion").animate({
-					right: "-189px"
+					left: "-189px"
 				});
 			}
 		})

@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block fin %}
+                        <div class="next-section">
+                            <a class="go-to-resultat"><span></span></a>
+                        </div><!-- /.next-section -->
+{%endblock%}
+                    
+{% block resultat %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <h1>je suis ADMIN!!!!!!!</h1>
+    {% endif %}
+
+    {% if is_granted('ROLE_USER') %}
+        <h1>je suis USER!!!!!!!</h1>
+    {% endif %}
+
+    <!-- Résultat des courses Section -->
+    <section id="resultat" class="section-style" data-background-image="{{ asset('images/background/lampes-frontales_generale_0.jpg') }}">
+        <div class="pattern height-resize"> 
+            <div class="container">
+                <h3 class="section-name">
+                    <span>
+                        Résultat par courses
+                    </span>
+                </h3><!-- /.section-name -->
+                <h2 class="section-title">
+                    Chaque course a son résultat
+                </h2><!-- /.Section-title  -->
+                <p class="section-description">
+                    « La course est un grand point d'interrogation qui est là chaque jour. Elle vous demande : « Est-ce que vous allez être une mauviette ou allez vous être fort aujourd'hui ? »
+                    - Peter Maher, marathonien canadien
+                </p><!-- /.section-description -->
+
+                <article class="box">
+                    <theader>
+                        {#{% if result is defined %} {% endif %} vérifie si la variable est définie sinon ne l'utilise pas ce qui permet d'éviter des erreur sur les page ou elle apparais#}
+                        <h2>Résultats de : 
+                            <form>
+                                <select name="meeting"  onchange="this.form.submit()">
+                                    <option placeholder="course"></option>
+                                    {% for result in meetings %}                                             
+                                        <option value="{{ result.id }}" {% if selectedMeeting is not null %} {% if selectedMeeting.id == result.id %} selected="selected" {% endif %} {% endif %}> {{ result.name }}</option>                                   
+                                    {% endfor %}
+                                </select>
+                            </form>
+                        </h2>
+                        <p>2017</p>
+                    </theader>
+
+                    <div class="content">
+                        <table class="table table-inverse">
+                            <thead>
+                                <tr>
+                                    <th>Prenom</th>
+                                    <th>Nom</th>
+                                    <th>Temps</th>
+                                    <th>Resultat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for athletes in results %}
+
+                                    <tr>
+                                        <td>{{ athletes.athlete.firstname }}</td>
+                                        <td>{{ athletes.athlete.lastname }}</td>
+                                        <td>{{ athletes.time }}</td>
+                                        <td>{{ athletes.points }}</td>
+                                    </tr>
+
+                                {% endfor %}
+
+                            </tbody>
+                        </table>                       
+                    </div>
+
+                    <footer>
+                        <a href="{{ asset('/') }}" class="button alt">Archive</a>
+                    </footer>
+                </article>
+
+                <div class="next-section">
+                    <a class="go-to-contact"><span></span></a>
+                </div><!-- /.next-section -->
+
+            </div><!-- /.container -->
+        </div><!-- /.pattern -->
+
+
+    </section><!-- /#resultat -->
+    <!-- Résultat des courses Section End -->
+{%endblock%}
