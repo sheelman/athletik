@@ -226,17 +226,22 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        elseif (0 === strpos($pathinfo, '/member')) {
+        elseif (0 === strpos($pathinfo, '/user/member')) {
             // member
-            if ('/member' === $pathinfo) {
+            if ('/user/member' === $pathinfo) {
                 return array (  '_controller' => 'AppBundle\\Controller\\indexController::memberAction',  '_route' => 'member',);
             }
 
             // inscriptionCourse
-            if (preg_match('#^/member/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if (preg_match('#^/user/member/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'inscriptionCourse')), array (  '_controller' => 'AppBundle\\Controller\\indexController::inscriptionCourseAction',));
             }
 
+        }
+
+        // inscription
+        if ('/user/inscriptioncoureur' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\indexController::inscriptioncoureurAction',  '_route' => 'inscription',);
         }
 
         // classement
@@ -260,11 +265,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         // nouvelle_course
         if ('/admin/nouvelle_course' === $pathinfo) {
             return array (  '_controller' => 'AppBundle\\Controller\\indexController::nouvellecourseAction',  '_route' => 'nouvelle_course',);
-        }
-
-        // inscription
-        if ('/user/inscriptioncoureur' === $pathinfo) {
-            return array (  '_controller' => 'AppBundle\\Controller\\indexController::inscriptioncoureurAction',  '_route' => 'inscription',);
         }
 
         if (0 === strpos($pathinfo, '/login')) {

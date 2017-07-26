@@ -60,7 +60,7 @@ class indexController extends Controller
     }
     
      /**
-     * @Route("/member", name="member")
+     * @Route("/user/member", name="member")
      */
     public function memberAction(Request $request)
     {
@@ -72,7 +72,7 @@ class indexController extends Controller
     }  
     
      /**
-     * @Route("/member/{id}", name="inscriptionCourse")
+     * @Route("/user/member/{id}", name="inscriptionCourse")
      */
     public function inscriptionCourseAction(Request $request, $id)
     {
@@ -169,7 +169,7 @@ class indexController extends Controller
                 $em->persist($user);
                 $em->flush();
                 $id=$this->getUser()->getId();
-                return $this->render('default/member.html.twig', ['firstname' => $fname, 'lastname' => $lname, 'id'=>$id]);
+                return $this->render('default/index.html.twig', ['firstname' => $fname, 'lastname' => $lname, 'id'=>$id]);
             }
             return $this->render('default/inscriptioncoureur.html.twig', [
                 'AthleteType' => $form->createView()
