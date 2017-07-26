@@ -231,14 +231,27 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\indexController::classementAction',  '_route' => 'classement',);
         }
 
-        // master
-        if ('/admin/master' === $pathinfo) {
-            return array (  '_controller' => 'AppBundle\\Controller\\indexController::masterAction',  '_route' => 'master',);
+        if (0 === strpos($pathinfo, '/admin/master')) {
+            // master
+            if ('/admin/master' === $pathinfo) {
+                return array (  '_controller' => 'AppBundle\\Controller\\indexController::masterAction',  '_route' => 'master',);
+            }
+
+            // removeCourse
+            if (0 === strpos($pathinfo, '/admin/master/remove') && preg_match('#^/admin/master/remove/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'removeCourse')), array (  '_controller' => 'AppBundle\\Controller\\indexController::removeCourseAction',));
+            }
+
+        }
+
+        // nouvelle_course
+        if ('/admin/nouvelle_course' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\indexController::nouvellecourseAction',  '_route' => 'nouvelle_course',);
         }
 
         // inscription
-        if ('/user/inscription' === $pathinfo) {
-            return array (  '_controller' => 'AppBundle\\Controller\\indexController::inscriptionAction',  '_route' => 'inscription',);
+        if ('/user/inscriptioncoureur' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\indexController::inscriptioncoureurAction',  '_route' => 'inscription',);
         }
 
         if (0 === strpos($pathinfo, '/login')) {

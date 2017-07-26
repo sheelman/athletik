@@ -173,13 +173,15 @@
         </section><!-- /#page-top -->
         <!-- Page Top Section  End -->
 
-    {% block conexion %}{%endblock%}
+{% block conexion %}{%endblock%}
 {% block register %}{%endblock%}
 {% block profile %}{%endblock%}
 {% block letter %}{%endblock%}
 {% block portfolio %}{%endblock%}
 {% block resultat %}{%endblock%}
 {% block classement %}{%endblock%}
+{% block admin %}{%endblock%}
+{% block user %}{%endblock%}
 
 {% block contact %}       
     <!-- Contact Section -->
@@ -327,6 +329,12 @@
                 <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
                 <br/>
                 <a href="{{ path('fos_user_profile_show') }}">Profile</a>
+                <br/>
+                <a href="{{ path('inscription') }}">Membre</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <br/>
+                <a href="{{ path('master') }}">Admin</a>
+            {% endif %}
             </div>
         </div>
         <div class="bottom">

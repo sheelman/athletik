@@ -146,8 +146,10 @@
   'WebProfilerBundle:Profiler:open.html.twig' => __DIR__.'/../../../vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views/Profiler/open.html.twig',
   '::base.html.twig' => __DIR__.'/../../../app/Resources/views/base.html.twig',
   ':default:index.html.twig' => __DIR__.'/../../../app/Resources/views/default/index.html.twig',
-  ':default:inscription.html.twig' => __DIR__.'/../../../app/Resources/views/default/inscription.html.twig',
+  ':default:inscriptioncoureur.html.twig' => __DIR__.'/../../../app/Resources/views/default/inscriptioncoureur.html.twig',
   ':default:master.html.twig' => __DIR__.'/../../../app/Resources/views/default/master.html.twig',
   ':default:resultat.html.twig' => __DIR__.'/../../../app/Resources/views/default/resultat.html.twig',
+  ':default:result.html.twig' => __DIR__.'/../../../app/Resources/views/default/result.html.twig',
+  ':default:nouvellecourse.html.twig' => __DIR__.'/../../../app/Resources/views/default/nouvellecourse.html.twig',
   ':default:classement.html.twig' => __DIR__.'/../../../app/Resources/views/default/classement.html.twig',
 );

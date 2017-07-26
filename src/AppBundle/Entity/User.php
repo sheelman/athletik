@@ -24,4 +24,28 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
+    
+    /**
+     * @var \AppBundle\Entity\Athlete
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Athlete")
+     *
+     */
+    protected $Athlete;
+    
+     /**
+     * @return Athlete
+     */
+    function getAthlete() {
+        return $this->Athlete;
+    }
+
+     /**
+     * @param Athlete $Athlete
+     */
+    function setAthlete(\AppBundle\Entity\Athlete $Athlete) {
+        $this->Athlete = $Athlete;
+    }
+
+
 }

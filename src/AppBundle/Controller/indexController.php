@@ -2,9 +2,18 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use AppBundle\Entity\Athlete;
+use AppBundle\Entity\Meeting;
+use AppBundle\Entity\Result;
+use AppBundle\Entity\User;
+use AppBundle\Form\MeetingType;
+use AppBundle\Form\AthleteType;
+use AppBundle\Form\ResultType;
 
 
 /**
@@ -70,19 +79,97 @@ class indexController extends Controller
      */
     public function masterAction(Request $request)
     {
-       
-         
-        return $this->render('default/master.html.twig', []);    
+        $em = $this->getDoctrine()->getManager();
+        
+            //affiche le nom d'une course
+            $meetings = $em->getRepository("AppBundle:Meeting")->findAll(); 
+            
+        return $this->render('default/master.html.twig', ['meetings'=>$meetings]);    
     }
+    
+    
+         /**
+         * @Route("/admin/master/remove/{id}", name="removeCourse")
+         */
+        public function removeCourseAction(Request $request, $id)
+        {
+            $em= $this->getDoctrine()->getManager();
+            $repository = $em->getRepository('AppBundle:Meeting');
+            $item = $repository->findOneBy(array('id'=>$id));
+            $em->remove($item);
+            $em->flush();
+            return $this->redirectToRoute('master');
+        }
         
     
      /**
-     * @Route("/user/inscription", name="inscription")
+     * @Route("/user/inscriptioncoureur", name="inscription")
+     * @method({"POST"})
      */
-    public function inscriptionAction(Request $request)
+    public function inscriptioncoureurAction(Request $request)
     {
-       
+               $athleteid =$this->getUser()->getAthlete();
+        $id=$this->getUser()->getId();
+        if (!$athleteid) {
+            /* create a new runner*/
+            $Athlete = new Athlete();
+            $form = $this->createForm(AthleteType::class, $Athlete);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($Athlete);
+                /* keep the info from the runner*/
+                $fname = $form['firstname']->getData();
+                $lname = $form['lastname']->getData();
+                $birth = $form['birthdate']->getData();
+                $em->flush();
+                /*search the Athlete ID based on the info from the form*/
+                $query = $em->createQuery(
+                    'SELECT i FROM AppBundle:Athlete i 
+                 WHERE i.firstname=:firstname AND i.lastname=:lastname AND i.birthdate=:birth')->setParameter('firstname', $fname)
+                    ->setParameter('lastname', $lname)
+                    ->setParameter('birth', $birth);
+                $athletic = $query->getSingleResult();
+                $user = $this->getUser();
+                $user->setAthlete($athletic);
+                $em->persist($user);
+                $em->flush();
+                $id=$this->getUser()->getId();
+                return $this->render('default/index.html.twig', ['firstname' => $fname, 'lastname' => $lname, 'id'=>$id]);
+            }
+            return $this->render('default/inscriptioncoureur.html.twig', [
+                'AthleteType' => $form->createView()
+            ]);
+        }
+        $em = $this->getDoctrine()->getManager();
+        $query=$em->createQuery(
+                                'SELECT i FROM AppBundle:Athlete i Where i.id=:Athleteid'
+        )->setParameter('Athleteid', $athleteid);
+        $Athlete=$query->getSingleResult();
+        $fname=$Athlete->getFirstname();
+        $lname=$Athlete->getLastname();
          
-        return $this->render('default/inscription.html.twig', []);    
+        return $this->render('default/index.html.twig', []);    
+    }
+    
+    
+    
+        /**
+     * @route("/admin/nouvelle_course", name="nouvelle_course")
+     * @method({"POST"})
+     */
+    public function nouvellecourseAction(Request $request){
+        $race = new Meeting();
+        $form = $this ->createForm(MeetingType::class, $race);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($race);
+            $em->flush();
+            return $this->render('default/index.html.twig');
+        }
+        return $this->render('default/nouvellecourse.html.twig', [
+            'MeetingType'=>$form->createView()
+        ]);
     }
 }

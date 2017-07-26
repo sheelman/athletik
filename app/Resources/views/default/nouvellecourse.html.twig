@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{#{% if is_granted('ROLE_ADMIN') %}
+{% endif %} // A mettre a l'endroit ou l'on veut protéger une partie de page en  admin sinon mettre la page entière dans /admin#}
+
+{% block timer %}{%endblock%}
+
+{% block fin %}
+    <div class="next-section">
+        <a class="go-to-classement"><span></span></a>
+    </div><!-- /.next-section -->
+{%endblock%}
+
+{% block admin %}
+
+    <!-- Classement général Section -->
+    <section id="classement" class="section-style" data-background-image="{{ asset('images/background/#') }}">   
+        <div class="pattern height-resize">
+            <div class="container">
+                <h3 class="section-name">
+                    <span>
+                        Enregistrement de nouvelles courses
+                    </span>
+                </h3><!-- /.section-name -->
+                <h2 class="section-title">
+                    MASTER ! 
+                </h2><!-- /.Section-title  -->
+
+
+                <article class="box">
+                    <div class="content">
+                        <table class="table table-inverse">
+                            {{ form_start(MeetingType) }}
+                            {{ form_widget(MeetingType) }}
+                            {{ form_end(MeetingType) }}
+                        </table>
+                    </div>
+                </article>
+
+                <div class="next-section">
+                    <a class="go-to-contact"><span></span></a>
+                </div><!-- /.next-section -->
+
+            </div><!-- /.container -->
+        </div><!-- /.pattern -->
+
+    </section><!-- /#classement -->
+    <!-- Classement général Section End -->
+{%endblock%}
