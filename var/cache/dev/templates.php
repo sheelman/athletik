@@ -149,7 +149,7 @@
   ':default:inscriptioncoureur.html.twig' => __DIR__.'/../../../app/Resources/views/default/inscriptioncoureur.html.twig',
   ':default:master.html.twig' => __DIR__.'/../../../app/Resources/views/default/master.html.twig',
   ':default:resultat.html.twig' => __DIR__.'/../../../app/Resources/views/default/resultat.html.twig',
-  ':default:result.html.twig' => __DIR__.'/../../../app/Resources/views/default/result.html.twig',
   ':default:nouvellecourse.html.twig' => __DIR__.'/../../../app/Resources/views/default/nouvellecourse.html.twig',
   ':default:classement.html.twig' => __DIR__.'/../../../app/Resources/views/default/classement.html.twig',
+  ':default:member.html.twig' => __DIR__.'/../../../app/Resources/views/default/member.html.twig',
 );

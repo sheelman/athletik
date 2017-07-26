@@ -11,6 +11,7 @@ use AppBundle\Entity\Athlete;
 use AppBundle\Entity\Meeting;
 use AppBundle\Entity\Result;
 use AppBundle\Entity\User;
+use AppBundle\Entity\Inscription;
 use AppBundle\Form\MeetingType;
 use AppBundle\Form\AthleteType;
 use AppBundle\Form\ResultType;
@@ -58,23 +59,38 @@ class indexController extends Controller
         return $this->render('default/resultat.html.twig', ['meetings'=>$meetings, 'results'=>$resultglobo, 'selectedMeeting'=>$selectedMeeting]);    
     }
     
-          /**
-     * @Route("/inscriptioncourse", name="inscriptioncourse")
+     /**
+     * @Route("/member", name="member")
      */
-    public function inscriptioncourseAction(Request $request, $id)
+    public function memberAction(Request $request)
     {
         $em= $this->getDoctrine()->getManager();
+        $meetings = $em->getRepository('AppBundle:Meeting')->findAll();
+
+         
+        return $this->render('default/member.html.twig', ['meetings'=>$meetings]);    
+    }  
+    
+     /**
+     * @Route("/member/{id}", name="inscriptionCourse")
+     */
+    public function inscriptionCourseAction(Request $request, $id)
+    {
+        $em= $this->getDoctrine()->getManager();
+        $meetings = $em->getRepository('AppBundle:Meeting')->find($id);
         
-        $athlete= $this->getUser()->getAthlete();
-        $meeting = $em->getRepository('AppBundle:Meeting')->find($id);
+        
+        
+          $user = $this->getUser();
+        $athlete= $user->getAthlete();
+        
         $result = new Result();
         $result->setAthlete($athlete);
-        $result->setMeeting($meeting);
+        $result->setMeeting($meetings);
         $em->persist($result);
         $em->flush();
-       
          
-        return $this->render('default/resultat.html.twig', []);    
+        return $this->render('default/member.html.twig', ['meetings'=>$meetings]);    
     }   
     
      /**
@@ -153,7 +169,7 @@ class indexController extends Controller
                 $em->persist($user);
                 $em->flush();
                 $id=$this->getUser()->getId();
-                return $this->render('default/index.html.twig', ['firstname' => $fname, 'lastname' => $lname, 'id'=>$id]);
+                return $this->render('default/member.html.twig', ['firstname' => $fname, 'lastname' => $lname, 'id'=>$id]);
             }
             return $this->render('default/inscriptioncoureur.html.twig', [
                 'AthleteType' => $form->createView()

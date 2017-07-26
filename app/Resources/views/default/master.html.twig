@@ -35,7 +35,8 @@
                                 <br/>
                                 <td><a href="{{ path('resultat') }}">Enregistrer les résultats</a></td>
                             </tr>
-                            {% for meeting in meetings %} <tr>
+                            {% for meeting in meetings %}
+                            <tr>
                                 <td>{{ meeting.name }}</td>
                                 <td>{{ meeting.description }}</td>
                                 <td>{{ meeting.date|date('d-m-Y') }}| <a href="{{ path('removeCourse', {id: meeting.id}) }}">Enlever courses</a></td>

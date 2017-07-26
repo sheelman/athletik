@@ -32,23 +32,25 @@
                         <h2>Résultats de :</h2> 
                             <form>
                                 <select name="meeting"  onchange="this.form.submit()">
-                                    <option placeholder="course"></option>
-                                    {% for result in meetings %}                                             
-                                        <option value="{{ result.id }}" {% if selectedMeeting is not null %} {% if selectedMeeting.id == result.id %} selected="selected" {% endif %} {% endif %}> {{ result.name }} <p>{{ result.date|date('d-m-Y') }}</p> </option>                                       
+                                    <option name ="Sectionnez" placeholder="course"></option>
+                                    {% set i=0 %}
+                                    {% for result in meetings %}
+                                        {% if i == 0 %}
+                                            <option value="{{ result.id }}" {% if selectedMeeting is not null %} {% if selectedMeeting.id == result.id %} selected="selected" {% endif %} {% endif %}> {{ result.name }} <p>{{ result.date|date('d-m-Y') }}</p> </option>
+                                        {% endif %}
+                                        {% if i != 0 %}
+                                            <option value="{{ result.id }}" {% if selectedMeeting is not null %} {% if selectedMeeting.id == result.id %} {% endif %} {% endif %}> {{ result.name }} <p>{{ result.date|date('d-m-Y') }}</p> </option>
+                                        {% endif %}
+                                    {% set i=i+1 %}
                                     {% endfor %}
                                 </select>
                                 
                             </form>
-                                <br/>
-                            {% if is_granted('ROLE_USER') %}
-                                <a class="btn btn-success" href="{{ path('inscription') }}" role="button">Inscription comme coureur</a>
-                                <a class="btn btn-warning" href="{{ path('inscriptioncourse') }}" role="button">Inscription a la course sélectionné</a> 
-                            {% endif %}
-                            {% if is_granted('ROLE_ADMIN') %}
+
+                            
+                        {% if is_granted('ROLE_ADMIN') %}
                                 <a class="btn btn-danger" href="#" role="button">Enregistrer les résultats</a>
                             {% endif %}
-                            
-                        
                         
                     </theader>
 

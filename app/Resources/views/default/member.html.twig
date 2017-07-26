@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{#{% if is_granted('ROLE_USER') %}
+{% endif %} // A mettre a l'endroit ou l'on veut protéger une partie de page en  user sinon mettre la page entière dans /user#}
+
+{% block timer %}{%endblock%}
+
+{% block fin %}
+                        <div class="next-section">
+                            <a class="go-to-classement"><span></span></a>
+                        </div><!-- /.next-section -->
+{%endblock%}
+
+{% block classement %}
+
+    <!-- Classement général Section -->
+    <section id="classement" class="section-style" data-background-image="{{ asset('images/background/static1.squarespace.com.jpeg') }}">   
+        <div class="pattern height-resize">
+            <div class="container">
+                <h3 class="section-name">
+                    <span>
+                        Ici c'est pour devenir un espoir
+                    </span>
+                </h3><!-- /.section-name -->
+                <h2 class="section-title">
+                    USER for user ! 
+                </h2><!-- /.Section-title  -->
+ 
+                                                <br/>
+                            
+                                <a class="btn btn-success" href="{{ path('inscription') }}" role="button">Inscription comme coureur</a>
+                              <br/>  
+                                {% for meeting in meetings %}
+                            <tr>
+                                <td>{{ meeting.name }} <a href="{{ path('inscriptionCourse', {id: meeting.id}) }}">Inscription a la course </a></td>
+                              <br/>
+                            </tr>
+                            {% endfor %}   
+                                
+                                 
+                           
+
+                <div class="next-section">
+                    <a class="go-to-contact"><span></span></a>
+                </div><!-- /.next-section -->
+
+            </div><!-- /.container -->
+        </div><!-- /.pattern -->
+
+    </section><!-- /#classement -->
+    <!-- Classement général Section End -->
+{%endblock%}{# empty Twig template #}

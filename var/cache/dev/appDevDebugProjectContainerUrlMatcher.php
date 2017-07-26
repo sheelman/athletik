@@ -226,9 +226,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // inscriptioncourse
-        if ('/inscriptioncourse' === $pathinfo) {
-            return array (  '_controller' => 'AppBundle\\Controller\\indexController::inscriptioncourseAction',  '_route' => 'inscriptioncourse',);
+        elseif (0 === strpos($pathinfo, '/member')) {
+            // member
+            if ('/member' === $pathinfo) {
+                return array (  '_controller' => 'AppBundle\\Controller\\indexController::memberAction',  '_route' => 'member',);
+            }
+
+            // inscriptionCourse
+            if (preg_match('#^/member/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'inscriptionCourse')), array (  '_controller' => 'AppBundle\\Controller\\indexController::inscriptionCourseAction',));
+            }
+
         }
 
         // classement
