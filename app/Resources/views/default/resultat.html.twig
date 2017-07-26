@@ -34,12 +34,22 @@
                                 <select name="meeting"  onchange="this.form.submit()">
                                     <option placeholder="course"></option>
                                     {% for result in meetings %}                                             
-                                        <option value="{{ result.id }}" {% if selectedMeeting is not null %} {% if selectedMeeting.id == result.id %} selected="selected" {% endif %} {% endif %}> {{ result.name }}</option>                                   
+                                        <option value="{{ result.id }}" {% if selectedMeeting is not null %} {% if selectedMeeting.id == result.id %} selected="selected" {% endif %} {% endif %}> {{ result.name }} <p>{{ result.date|date('d-m-Y') }}</p> </option>                                       
                                     {% endfor %}
                                 </select>
+                                
                             </form>
+                                <br/>
+                            {% if is_granted('ROLE_USER') %}
+                                <a class="btn btn-success" href="{{ path('inscription') }}" role="button">Inscription comme coureur</a>
+                                <a class="btn btn-warning" href="{{ path('inscriptioncourse') }}" role="button">Inscription a la course sélectionné</a> 
+                            {% endif %}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a class="btn btn-danger" href="#" role="button">Enregistrer les résultats</a>
+                            {% endif %}
+                            
                         
-                        <p>2017</p>
+                        
                     </theader>
 
                     <div class="content">
@@ -69,7 +79,7 @@
                     </div>
 
                     <footer>
-                        <a href="{{ asset('/') }}" class="button alt">Archive</a>
+                        {#<a href="{{ asset('/') }}" class="button alt">Archive</a>#}
                     </footer>
                 </article>
 

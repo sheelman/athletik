@@ -33,7 +33,7 @@
                             <tr>
                                 <td><a href="{{ asset('/admin/nouvelle_course') }}">Créer une nouvelle course</a></td>
                                 <br/>
-                                <td><a href="{{ asset('#') }}">Enregistrer les résultats</a></td>
+                                <td><a href="{{ path('resultat') }}">Enregistrer les résultats</a></td>
                             </tr>
                             {% for meeting in meetings %} <tr>
                                 <td>{{ meeting.name }}</td>

@@ -58,6 +58,24 @@ class indexController extends Controller
         return $this->render('default/resultat.html.twig', ['meetings'=>$meetings, 'results'=>$resultglobo, 'selectedMeeting'=>$selectedMeeting]);    
     }
     
+          /**
+     * @Route("/inscriptioncourse", name="inscriptioncourse")
+     */
+    public function inscriptioncourseAction(Request $request, $id)
+    {
+        $em= $this->getDoctrine()->getManager();
+        
+        $athlete= $this->getUser()->getAthlete();
+        $meeting = $em->getRepository('AppBundle:Meeting')->find($id);
+        $result = new Result();
+        $result->setAthlete($athlete);
+        $result->setMeeting($meeting);
+        $em->persist($result);
+        $em->flush();
+       
+         
+        return $this->render('default/resultat.html.twig', []);    
+    }   
     
      /**
      * @Route("/classement", name="classement")
@@ -118,12 +136,12 @@ class indexController extends Controller
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($Athlete);
-                /* keep the info from the runner*/
+                /* Garder l'information du coureur*/
                 $fname = $form['firstname']->getData();
                 $lname = $form['lastname']->getData();
                 $birth = $form['birthdate']->getData();
                 $em->flush();
-                /*search the Athlete ID based on the info from the form*/
+                /*Recherchez l'ID de l'athlète en fonction de l'information à partir du formulaire*/
                 $query = $em->createQuery(
                     'SELECT i FROM AppBundle:Athlete i 
                  WHERE i.firstname=:firstname AND i.lastname=:lastname AND i.birthdate=:birth')->setParameter('firstname', $fname)

@@ -226,6 +226,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // inscriptioncourse
+        if ('/inscriptioncourse' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\indexController::inscriptioncourseAction',  '_route' => 'inscriptioncourse',);
+        }
+
         // classement
         if ('/classement' === $pathinfo) {
             return array (  '_controller' => 'AppBundle\\Controller\\indexController::classementAction',  '_route' => 'classement',);
