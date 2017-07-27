@@ -152,4 +152,5 @@
   ':default:nouvellecourse.html.twig' => __DIR__.'/../../../app/Resources/views/default/nouvellecourse.html.twig',
   ':default:classement.html.twig' => __DIR__.'/../../../app/Resources/views/default/classement.html.twig',
   ':default:member.html.twig' => __DIR__.'/../../../app/Resources/views/default/member.html.twig',
+  ':default:calcul.html.twig' => __DIR__.'/../../../app/Resources/views/default/calcul.html.twig',
 );

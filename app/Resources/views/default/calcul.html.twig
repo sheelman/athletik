@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{#{% if is_granted('ROLE_ADMIN') %}
+{% endif %} // A mettre a l'endroit ou l'on veut protéger une partie de page en  admin sinon mettre la page entière dans /admin#}
+
+{% block timer %}{%endblock%}
+
+{% block fin %}
+    <div class="next-section">
+        <a class="go-to-classement"><span></span></a>
+    </div><!-- /.next-section -->
+{%endblock%}
+
+{% block admin %}
+
+    <!-- Classement général Section -->
+    <section id="classement" class="section-style" data-background-image="{{ asset('images/background/#') }}">   
+        <div class="pattern height-resize">
+            <div class="container">
+                <h3 class="section-name">
+                    <span>
+                        Enregistrement de résultats
+                    </span>
+                </h3><!-- /.section-name -->
+                <h2 class="section-title">
+                    MASTER ! 
+                </h2><!-- /.Section-title  -->
+
+
+                <article class="box">
+                    <theader>
+                        <h2>Résultats de :</h2> 
+                            <form>
+                                <select name="meeting"  onchange="this.form.submit()">
+                                    <option name ="Sectionnez" placeholder="course"></option>
+                                    {% for result in meetings %}
+                                            <option value="{{ result.id }}" {% if selectedMeeting is not null %} {% if selectedMeeting.id == result.id %} selected="selected" {% endif %} {% endif %}> {{ result.name }} <p>{{ result.date|date('d-m-Y') }}</p> </option>
+                                    {% endfor %}
+                                </select>
+                                
+                            </form>
+
+                        
+                    </theader>
+
+                    <div class="content">
+                        <table class="table table-inverse">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prenom</th>
+                                    <th>Points</th>
+                                    <th>Temps</th>
+                                    <th>Naissance</th>
+                                    <th>Id Athlète</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for athletes in results %}
+
+                <tr>
+                    <td id="lastname">{{athletes.athlete.lastname}}</td> 
+                    <td id="firstname">{{athletes.athlete.firstname}}</td>
+                    <td class="{{athletes.athlete.id}}"class="points">{{athletes.points}}</td> 
+                    <td id="time"><input class="change" placeholder="{{athletes.time|round(2)}}"/> <button id="btnok" type="button" class="btn btn-danger">Ok</button></td>
+                    <td id="birthdate"> {{athletes.athlete.birthdate}}</td> 
+                    <td id="id"> {{athletes.athlete.id}}</td>
+                </tr>
+
+                                {% endfor %}
+
+                            </tbody>
+                        </table>                       
+                    </div>
+
+                    <footer>
+                        {#<a href="{{ asset('/') }}" class="button alt">Archive</a>#}
+                    </footer>
+                </article>
+
+                <div class="next-section">
+                    <a class="go-to-contact"><span></span></a>
+                </div><!-- /.next-section -->
+
+            </div><!-- /.container -->
+        </div><!-- /.pattern -->
+
+    </section><!-- /#classement -->
+    <!-- Classement général Section End -->
+    
+    <script type="text/javascript" src="{{ asset('assets/js/calcul.js')}}"></script>
+{%endblock%}

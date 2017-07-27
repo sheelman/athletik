@@ -249,25 +249,33 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\indexController::classementAction',  '_route' => 'classement',);
         }
 
-        if (0 === strpos($pathinfo, '/admin/master')) {
-            // master
-            if ('/admin/master' === $pathinfo) {
-                return array (  '_controller' => 'AppBundle\\Controller\\indexController::masterAction',  '_route' => 'master',);
+        if (0 === strpos($pathinfo, '/admin')) {
+            if (0 === strpos($pathinfo, '/admin/master')) {
+                // master
+                if ('/admin/master' === $pathinfo) {
+                    return array (  '_controller' => 'AppBundle\\Controller\\indexController::masterAction',  '_route' => 'master',);
+                }
+
+                // removeCourse
+                if (0 === strpos($pathinfo, '/admin/master/remove') && preg_match('#^/admin/master/remove/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'removeCourse')), array (  '_controller' => 'AppBundle\\Controller\\indexController::removeCourseAction',));
+                }
+
             }
 
-            // removeCourse
-            if (0 === strpos($pathinfo, '/admin/master/remove') && preg_match('#^/admin/master/remove/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'removeCourse')), array (  '_controller' => 'AppBundle\\Controller\\indexController::removeCourseAction',));
+            // nouvelle_course
+            if ('/admin/nouvelle_course' === $pathinfo) {
+                return array (  '_controller' => 'AppBundle\\Controller\\indexController::nouvellecourseAction',  '_route' => 'nouvelle_course',);
+            }
+
+            // enregistrement
+            if ('/admin/enregistrement' === $pathinfo) {
+                return array (  '_controller' => 'AppBundle\\Controller\\indexController::enregistrementAction',  '_route' => 'enregistrement',);
             }
 
         }
 
-        // nouvelle_course
-        if ('/admin/nouvelle_course' === $pathinfo) {
-            return array (  '_controller' => 'AppBundle\\Controller\\indexController::nouvellecourseAction',  '_route' => 'nouvelle_course',);
-        }
-
-        if (0 === strpos($pathinfo, '/login')) {
+        elseif (0 === strpos($pathinfo, '/login')) {
             // fos_user_security_login
             if ('/login' === $pathinfo) {
                 if (!in_array($canonicalMethod, array('GET', 'POST'))) {

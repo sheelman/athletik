@@ -33,24 +33,14 @@
                             <form>
                                 <select name="meeting"  onchange="this.form.submit()">
                                     <option name ="Sectionnez" placeholder="course"></option>
-                                    {% set i=0 %}
                                     {% for result in meetings %}
-                                        {% if i == 0 %}
                                             <option value="{{ result.id }}" {% if selectedMeeting is not null %} {% if selectedMeeting.id == result.id %} selected="selected" {% endif %} {% endif %}> {{ result.name }} <p>{{ result.date|date('d-m-Y') }}</p> </option>
-                                        {% endif %}
-                                        {% if i != 0 %}
-                                            <option value="{{ result.id }}" {% if selectedMeeting is not null %} {% if selectedMeeting.id == result.id %} {% endif %} {% endif %}> {{ result.name }} <p>{{ result.date|date('d-m-Y') }}</p> </option>
-                                        {% endif %}
-                                    {% set i=i+1 %}
                                     {% endfor %}
                                 </select>
                                 
                             </form>
 
                             
-                        {% if is_granted('ROLE_ADMIN') %}
-                                <a class="btn btn-danger" href="#" role="button">Enregistrer les résultats</a>
-                            {% endif %}
                         
                     </theader>
 
@@ -70,7 +60,7 @@
                                     <tr>
                                         <td>{{ athletes.athlete.firstname }}</td>
                                         <td>{{ athletes.athlete.lastname }}</td>
-                                        <td>{{ athletes.time }}</td>
+                                        <td>{{ athletes.time|round(2) }}</td>
                                         <td>{{ athletes.points }}</td>
                                     </tr>
 
